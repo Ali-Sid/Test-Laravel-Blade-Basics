@@ -34,6 +34,10 @@ class HomeController extends Controller
     {
         $users = User::all();
 
+        if($users->isEmpty()) {
+            return view('rows', ['users' => 'No content']);
+        }
+
         return view('rows', compact('users'));
     }
 
